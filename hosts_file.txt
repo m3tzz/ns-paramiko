@@ -1,1 +1,1 @@
-<ip> <name of device>
+<ip> <name of lb>
