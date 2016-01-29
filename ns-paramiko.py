@@ -85,7 +85,6 @@ def send_config_to_ns(ip,username,password,output_buffer,file_vip):
 
     output = remote_conn.recv(output_buffer)
 
-
     # See what we have
     print output
 
@@ -127,12 +126,6 @@ def rollback_config_to_ns(ip,username,password,output_buffer,file_rollback_vip):
     time.sleep(5)
 
     output = remote_conn.recv(output_buffer)
-
-
-
-    #if "ERROR:" not in output:
-    #    print "we receveid this error:"+ output
-    #    sys.exit(0)
 
     # See what we have
     print output
