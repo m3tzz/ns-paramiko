@@ -1,3 +1,7 @@
+# author: Ruben Barbosa
+# version: 1.0
+# Description: Send configs to Netscaler Device and Rollback in case something went wrong
+
 import paramiko
 import time
 import getpass
