@@ -224,7 +224,7 @@ def newVipPairs_NS(numberSVRS, nameSVRS,protocol, serviceSVRS, newvip, vipip1,vi
         print "\n#Bind GSLB vservers to the VIP and give it the domain name."
         print "bind gslb vserver gslb-"+newvip+".services -serviceName gslb-80-"+newvip+".belb0102"
         print "bind gslb vserver gslb-"+newvip+".services -serviceName gslb-80-"+newvip+".belb0304"
-        print "bind gslb vserver gslb-"+newvip+".services -domainName "+newvip+".services.betfair -TTL 5"
+        print "bind gslb vserver gslb-"+newvip+".services -domainName "+newvip+".services.<company> -TTL 5"
 
         print "save ns config"
 
@@ -276,7 +276,7 @@ def newVipPairs_NS(numberSVRS, nameSVRS,protocol, serviceSVRS, newvip, vipip1,vi
         print "\n#Bind GSLB vservers to the VIP and give it the domain name."
         print "bind gslb vserver gslb-"+newvip+".services -serviceName gslb-"+str(serviceSVRS)+"-"+newvip+".belb0102"
         print "bind gslb vserver gslb-"+newvip+".services -serviceName gslb-"+str(serviceSVRS)+"-"+newvip+".belb0304"
-        print "bind gslb vserver gslb-"+newvip+".services -domainName "+newvip+".services.betfair -TTL 5"
+        print "bind gslb vserver gslb-"+newvip+".services -domainName "+newvip+".services.<company> -TTL 5"
 
         print "save ns config"
 
@@ -318,16 +318,16 @@ if __name__ == '__main__':
     ########### read info from host file ############
     host_tmp = load_file_host_config('hosts_file.txt')
 
+    ###### print menu ######
+    print_menu()
+    ###### option ######
+    option = int(raw_input("[option]:"))
+
     ####### LOGIN TACACS ########
     print "\n##################### TACACS Login #####################\n"
     username = raw_input('\ninsert your username:')
     password = getpass.getpass("Enter your password:")
     ####### END LOGIN TACACS ########
-
-    ###### print menu ######
-    print_menu()
-    ###### option ######
-    option = int(raw_input("[option]:"))
 
     ######### split IP and Name of NS and run the instruction for all LBs on file #########
     for ns_ip in host_tmp:
